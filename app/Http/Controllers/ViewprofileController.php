@@ -30,7 +30,7 @@ class ViewprofileController extends Controller
      */
     public function create()
     {
-        return view('viewprofile.create');
+        //
     }
 
     /**
@@ -44,14 +44,14 @@ class ViewprofileController extends Controller
         $this->validate($request, [
             'name' => '',
             'email' => '',
-            'number' => 'required',
-            'dob' => 'required',
-            'qualification' => 'required',
-            'specialization' => 'required',
-            'marks' => 'required',
-            'passout' => 'required',
-            'collegeaddress' => 'required',
-            'homeaddress' => 'required',
+            'number' => '',
+            'dob' => '',
+            'qualification' => '',
+            'specialization' => '',
+            'marks' => '',
+            'passout' => '',
+            'collegeaddress' => '',
+            'homeaddress' => '',
         ]);
 
 

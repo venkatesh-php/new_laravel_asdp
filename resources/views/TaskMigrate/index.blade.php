@@ -47,6 +47,7 @@
                         <th>Target Date</th>
                         <th>File Link</th>                    
                         <th width="280px">Action</th>
+                        <th>Status</th>
                         
                          
                     </tr>
@@ -69,10 +70,9 @@
                         <td>Nill</td>
                         @endif
                         <td>
-                            <!-- <a class="btn btn-info" href="{{ route('AdminTasks.show',$task->id) }}">Show</a> -->
-                            <!-- <a class="btn btn-primary" href="{{ route('UserTasks.create',9) }}">View Work</a> -->
-                             <a class="btn btn-info btn-xs" href="{{ route('UserTasks.show',$task->id) }}">View Work</a>
+                             <a class="btn btn-info btn-xs" href="{{ route('TaskMigrate.edit',$task->id) }}">View Work</a>
                         </td>
+                        <td>{{ $task->status }}</td>
                     </tr>
                     @endforeach
                 </table>

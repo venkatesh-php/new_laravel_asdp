@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="panel panel-primary text-center no-boder">
-                                <a style="text-decoration:none;" href="{{ route('Conversations.index') }}">
+                                <a style="text-decoration:none;" href="{{ route('TaskMigrate.index') }}">
                                     <div class="alert alert-info">
                                         <i class="fa fa-users fa-3x"></i>
                                         <h3>Conversations</h3>
@@ -85,7 +85,7 @@
                     <div class="row">
                             <div class="col-lg-3">
                                 <div class="panel panel-primary text-center no-boder">
-                                <a style="text-decoration:none;" href="{{ route('UserTasks.index') }}">
+                                <a style="text-decoration:none;" href="{{ route('TaskMigrate.index') }}">
                                     <div class="alert alert-info">                                     
                                         <i class="fa fa-pencil-square-o fa-3x"></i>
                                         <h3>User Tasks </h3>

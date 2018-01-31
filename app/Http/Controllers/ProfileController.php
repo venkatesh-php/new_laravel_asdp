@@ -17,9 +17,9 @@ class ProfileController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::orderBy('id','DESC')->paginate(15);
+        $users = User::orderBy('id','asc')->paginate(15);
         return view('Profile.index',compact('users'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+            ->with('i', ($request->input('page', 1) - 1) * 15);
             
     }
 
@@ -31,7 +31,7 @@ class ProfileController extends Controller
     public function create()
     {
        
-        return view('Profile.create');
+        //
     }
 
     /**

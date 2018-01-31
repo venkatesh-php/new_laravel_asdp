@@ -8,7 +8,7 @@
             <h2>Send Your Task</h2>
         </div>
         <div class="pull-right">
-                <!-- <a class="btn btn-primary" href="{{ route('UserTasks.index') }}"> Back</a> -->
+              
         </div>
     </div>
 </div>
@@ -38,20 +38,16 @@
          @endforeach
          
     </table>
+
     
-    
-                        @if($task->request_for === 'drop')
+@if($assign_tasks->status === 'drop')
                         <h1>Task Dropped</h1>
 
-                        @elseif($task->request_for === 'approved')
+                        @elseif($assign_tasks->status === 'approved')
                         <h1>Task Approved</h1>
 
 
                         @else
-                        
-
-
-                        
 
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -68,7 +64,7 @@
                                         <div class="col-sm-4"></div>
                                     <div class="col-sm-4" style="background-color:lavender;">
 
-                                    {!! Form::open(array('route' => 'UserTasks.store','method' => 'POST','files' => true)) !!}
+                                    {!! Form::open(array('route' => 'TaskMigrate.store','method' => 'POST','files' => true)) !!}
 
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -79,14 +75,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                            <strong>Request For:</strong>
-                                                {!! Form::select('request_for', [
-                                                '1' => ['review' => 'review']],
-                                                array('class' => 'form-control')) !!}
+                                    @if(Auth::user()->id <= 3) 
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>Request For:</strong>
+                                                    {!! Form::select('request_for', [
+                                                    '1' => ['redo' => 'redo'],
+                                                    '2' => ['drop' => 'drop'],
+                                                    '3' => ['approved' => 'approved']],
+                                                    array('class' => 'form-control')) !!}
+                                            </div>
                                         </div>
-                                    </div>
+                                        @else
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <strong>Request For:</strong>
+                                                        {!! Form::select('request_for', [
+                                                        '1' => ['review' => 'review']],
+                                                        array('class' => 'form-control')) !!}
+                                                </div>
+                                        </div>
+                                    @endif
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Message :</strong>
@@ -105,8 +115,8 @@
                                     </div>
 
                                 </div>
-                                @endif
-                            
+                               
+                            @endif
                             
 </div>
 
